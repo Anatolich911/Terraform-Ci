@@ -1,12 +1,10 @@
 name: Terraform CI/CD
 
-env: development
-
 on:
   pull_request:
     branches:
       - main
-      
+
 jobs:
   terraform_check:
     name: Check Terraform Configuration
