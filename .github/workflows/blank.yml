@@ -6,9 +6,7 @@ on:
   pull_request:
     branches:
       - main
-
-  
-
+      
 jobs:
   terraform_check:
     name: Check Terraform Configuration
@@ -24,10 +22,10 @@ jobs:
           terraform_version: "1.7.4"
 
       - name: Terraform Init
-        run: terraform init  ./terraform/${{ github.environment }}
+        run: terraform init  ./terraform
 
       - name: Terraform Validate
-        run: terraform validate -no-color ./terraform/${{ github.event_name }}
+        run: terraform validate -no-color ./terraform
 
   terraform_apply:
     name: Apply Terraform Changes
