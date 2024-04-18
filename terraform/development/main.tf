@@ -1,4 +1,4 @@
-resource "aws" "actions" {
-  name = "actions"
-  vpc_id = "vpc-3232"
+resource "aws_instance" "myec2" {
+    ami = "ami-00c39f71452c08778"
+    instance_type = "t2.micro"
 }
