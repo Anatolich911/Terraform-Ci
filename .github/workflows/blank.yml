@@ -28,7 +28,7 @@ jobs:
   terraform_apply:
     name: Apply Terraform Changes
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
 
     steps:
       - name: Checkout code
@@ -40,7 +40,7 @@ jobs:
           terraform_version: 1.0.0
 
       - name: Terraform Init
-        run: terraform init -reconfigure ./terraform/${{ env.TF_ENV }}
+        run: terraform init -reconfigure ./terraform/
 
       - name: Terraform Apply
         run: terraform apply -auto-approve ./terraform/${{ env.TF_ENV }}
