@@ -18,7 +18,7 @@ jobs:
         run: |
           git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
           
-          MODIFIED_DIRS=$(git diff --name-only ${{ github.event.before }} ${{ github.event.after }} | grep '^terraform/*' | awk -F'/' '{print $3}' | sort -u)
+          MODIFIED_DIRS=$(git diff --name-only ${{ github.event.before }} ${{ github.event.after }} | grep '^terraform/*' | awk -F'/' '{print $2}' | sort -u)
           echo "MODIFIED_DIRS=$MODIFIED_DIRS" >> $GITHUB_ENV
 
       - name: Print Modified Directories
