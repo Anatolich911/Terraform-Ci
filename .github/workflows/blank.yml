@@ -19,11 +19,12 @@ jobs:
           git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
           
           MODIFIED_DIRS=$(git diff --name-only ${{ github.event.before }} ${{ github.event.after }} | grep '^terraform/' | awk -F'/' '{print $2}' | sort -u)
-          echo "MODIFIED_ENV=$MODIFIED_DIRS" >> $GITHUB_ENV
+          echo $MODIFIED_DIRS
+          # echo "MODIFIED_ENV=$MODIFIED_DIRS" >> $GITHUB_ENV
 
       - name: Print Modified Terraform Environment
         run: |
-          echo "Modified Terraform environment: $MODIFIED_DIRS"
+          echo $MODIFIED_DIRS
 
   #     - name: Set up Terraform
   #       uses: hashicorp/setup-terraform@v3
