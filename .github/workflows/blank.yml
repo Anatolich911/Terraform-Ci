@@ -22,7 +22,8 @@ jobs:
           echo "MODIFIED_DIRS=$MODIFIED_DIRS" >> $GITHUB_ENV
 
       - name: Print 
-        run: echo "Modified directories: $MODIFIED_DIRS"
+        run: |
+          echo "Modified directories: $MODIFIED_DIRS"
 
   #     - name: Set up Terraform
   #       uses: hashicorp/setup-terraform@v3
