@@ -14,16 +14,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Detect Modified Directories
+      - name: Detect Modified Terraform Environment
         run: |
           git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
           
-          MODIFIED_DIRS=$(git diff --name-only ${{ github.event.before }} ${{ github.event.after }} | grep '^terraform/*' | awk -F'/' '{print $2}' | sort -u)
-          echo "MODIFIED_DIRS=$MODIFIED_DIRS" >> $GITHUB_ENV
+          MODIFIED_DIRS=$(git diff --name-only ${{ github.event.before }} ${{ github.event.after }} | grep '^terraform/' | awk -F'/' '{print $2}' | sort -u)
+          echo "MODIFIED_ENV=$MODIFIED_DIRS" >> $GITHUB_ENV
 
-      - name: Print Modified Directories
+      - name: Print Modified Terraform Environment
         run: |
-          echo "Modified directories: $MODIFIED_DIRS"
+          echo "Modified Terraform environment: $MODIFIED_DIRS"
 
   #     - name: Set up Terraform
   #       uses: hashicorp/setup-terraform@v3
