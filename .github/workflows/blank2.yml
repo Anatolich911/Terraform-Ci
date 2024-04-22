@@ -10,7 +10,7 @@ on:
 
 jobs:
   deploy:
-    uses: my-org/my-repo/.github/workflows/reusable-terraform-workflow.yml@main
+    uses: Anatolich911/Terraform-Ci/.github/workflows/reusable-terraform-workflow.yml@main
     with:
       terraform_directory: 'terraform/development'
       terraform_version: '1.7.4'
