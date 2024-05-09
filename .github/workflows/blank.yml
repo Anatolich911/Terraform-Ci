@@ -8,7 +8,7 @@ on:
 jobs:
   terraform_check:
     name: Check Terraform Configuration
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - name: Checkout code
